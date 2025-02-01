@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,6 +22,8 @@ import axios from "axios";
 import CreateProject from "./pages/CreateProject";
 import MyProjects from "./pages/MyProjects";
 import ProjectDetails from "./pages/ProjectDetails";
+import CreateTask from "./pages/CreateTask";
+import TaskDetails from "./pages/TaskDetails";
 
 const AppContent = () => {
   const [isInitializing, setIsInitializing] = useState(true);
@@ -103,6 +105,14 @@ const AppContent = () => {
             <Route path="/create-project" element={<CreateProject />} />
             <Route path="/my-projects" element={<MyProjects />} />
             <Route path="/projects/:id" element={<ProjectDetails />} />
+            <Route
+              path="/projects/:projectId/new-task"
+              element={<CreateTask />}
+            />
+            <Route
+              path="/projects/:projectId/tasks/:taskId"
+              element={<TaskDetails />}
+            />
           </Route>
           <Route
             path="*"
